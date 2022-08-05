@@ -1,59 +1,81 @@
 import React, { useState } from "react";
 
+function Formulario (props) {
 
-function Formulario (props){
-    const [name, setName] = useState= ("")
-    const [lastname, setLastname] = useState= ("")
-    const [number, setNumber] = useState= ("")
-    const [email, setEmail] = useState= ("")
+    const [ names, setNames] = useState= ("");
+    const [lastname, setLastname] = useState= ("");
+    const [number, setNumber] = useState= ("");
+    const [email, setEmail] = useState= ("");
 
-    const cambiarname = (e) => {
-        setName (e.target.value);
+    
+
+    
+    const CambiarName = (e) => {
+        setNames (e.target.value);
       const validar =  /^\s+$/g.test(e)
       console.log (validar)
     }
-    const cambiarlastname = (e) => {
+    const CambiarLastname = (e) => {
         setLastname(e.target.value);
-        
+        const validar =  /^\s+$/g.test(e)
+      console.log (validar)
             }
-     const cambiarnumber = (e) => {
+     const CambiarNumber = (e) => {
         setNumber(e.target.value);
+        const validar =  /^\s+$/g.test(e)
+      console.log (validar)
      }
-    const cambiaremail = (e) => {
+    const CambiarEmail = (e) => {
         setEmail(e.target.value);
+        const validar =  /^\s+$/g.test(e)
+      console.log (validar)
       }
-      const enviar =(e) => {
+      const Enviar =(e) => {
         e.preverdefault();
-        console.log ("name:" ,name , "apellido:" ,lastname , "numero:" ,number , "email:" ,email )
+        console.log ("name:" ,names , "apellido:" ,lastname , "numero:" ,number , "email:" ,email )
         
       }
 
-      //if (cambiarname.length === 0 || /^\s+$/.test(cambiarname)){
-      // alert ("El campo de nombre esta vacio");}
+      if (CambiarName.length === 0 || /^\s+$/.test(CambiarName)){
+       alert ("El campo de nombre esta vacio");}
+       if (CambiarLastname .length === 0 || /^\s+$/.test(CambiarLastname )){
+        alert ("El campo de nombre esta vacio");}
+        if (CambiarNumber .length === 0 || /^\s+$/.test(CambiarNumber )){
+            alert ("El campo de nombre esta vacio");}
+            if (CambiarEmail .length === 0 || /^\s+$/.test(CambiarEmail)){
+                alert ("El campo de nombre esta vacio");}
        
  return(
-    <div>
-        <form onSubmit={enviar}>
+    <div className="div1">
+        <form onSubmit={Enviar}>
             <h2> Datos Basicos </h2>
             <label>
                 Nombre:
-                <input type="name" value ={ name } onChange={cambiarname}></input>
+                <input type="name" value ={names} onChange={CambiarName}></input> <br/>
             </label>
             <label>
                 Apellido:
-                <input type="lastName" value ={lastname} onChange={cambiarlastname}></input>
+                <input type="lastName" value ={lastname} onChange={CambiarLastname}></input> <br/>
             </label>
             <label>
                 Telefono:
-                <input type="number" value ={number} onChange={cambiarnumber}></input>
+                <input type="number" value ={number} onChange={CambiarNumber}></input> <br/>
             </label>
             <label>
                 Email:
-                <input type="email" value ={email} onChange={cambiaremail}></input>
+                <input type="email" value ={email} onChange={CambiarEmail}></input> <br/>
             </label>
-        </form>
-        <button type="submit">Ingresar datos</button>
-    </div>
+        </form> 
+        <br/>
+        <button type="submit">Ingresar datos</button> <br/>
 
- )
-} export default Formulario
+        lista de tareas <br/>{ [names, lastname, number, email ] }
+    
+    
+    </div> ) };
+       
+   
+
+        
+
+    export default Formulario;
